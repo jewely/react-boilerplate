@@ -24,7 +24,7 @@ module.exports = {
   entry: utils.entry,
   output: {
     path: path.join(__dirname, '../dist'),
-    filename: '[name].[hash:8].js',
+    filename: '[name].[chunkhash:8].js',
   },
   resolve: {
     extensions: ['.js', '.jsx', '.scss'],

@@ -7,13 +7,21 @@
     "start": "node build/webpack.dll.js && cross-env type=DEV node build/dev-server.js",
     "build": "cross-env model=build && node build/webpack.dll.js && cross-env type=DEV node build/build.js",
     "test": "echo \"Error: no test specified\" && exit 1",
-    "doc": "edoc",
-    "precommit": "lint-staged",
-    "prepush": ""
+    "doc": "edoc"
   },
   "repository": {
     "type": "git",
     "url": "https://github.com/jewely/react-boilerplate.git"
+  },
+  "gitHooks": {
+    "pre-commit": "lint-staged",
+    "commit-msg": "node scripts/verify-commit-msg.js"
+  },
+  "lint-staged": {
+    "*.js": [
+      "eslint --fix",
+      "git add"
+    ]
   },
   "keywords": [
     "react",
